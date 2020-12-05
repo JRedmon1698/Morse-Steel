@@ -9,6 +9,10 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 const PORT = 3002;
 
+app.get('/api/morse/clients', (req, res) => {
+  res.send('get');
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`)
 });
