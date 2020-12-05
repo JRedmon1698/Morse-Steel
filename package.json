@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --d -watch",
+    "build": "webpack -w",
     "start": "nodemon server/index.js"
   },
   "repository": {
@@ -32,6 +32,7 @@
     "postgresql": "0.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "webpack": "^5.9.0"
+    "webpack": "^5.9.0",
+    "webpack-cli": "^4.2.0"
   }
 }
