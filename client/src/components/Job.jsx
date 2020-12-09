@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-const Job = ({ jobs }) => {
+const Job = ({ job }) => {
   return (
     <div>
-      Job
+      {job}
     </div>
   );
 };

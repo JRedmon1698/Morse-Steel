@@ -10,6 +10,7 @@ const JobList = ({ jobs }) => {
         <Job job={job}/>
         </div>
       ))} */}
+      {jobs}
       {console.log(jobs)}
     </div>
   );

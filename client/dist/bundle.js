@@ -400,7 +400,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Job = function Job(_ref) {\n  var jobs = _ref.jobs;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, \"Job\");\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Job);\n\n//# sourceURL=webpack://Morse-Steel/./client/src/components/Job.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\nvar Job = function Job(_ref) {\n  var job = _ref.job;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, job);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Job);\n\n//# sourceURL=webpack://Morse-Steel/./client/src/components/Job.jsx?");
 
 /***/ }),
 
@@ -415,7 +415,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Job_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Job.jsx */ \"./client/src/components/Job.jsx\");\n\n\n\nvar JobList = function JobList(_ref) {\n  var jobs = _ref.jobs;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, console.log(jobs));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (JobList);\n\n//# sourceURL=webpack://Morse-Steel/./client/src/components/JobList.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => __WEBPACK_DEFAULT_EXPORT__\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Job_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Job.jsx */ \"./client/src/components/Job.jsx\");\n\n\n\nvar JobList = function JobList(_ref) {\n  var jobs = _ref.jobs;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, jobs, console.log(jobs));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (JobList);\n\n//# sourceURL=webpack://Morse-Steel/./client/src/components/JobList.jsx?");
 
 /***/ }),
 
