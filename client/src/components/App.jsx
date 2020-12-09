@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Jobs from './Jobs.jsx';
+import JobList from './JobList.jsx';
 import TeamMembers from './TeamMembers.jsx';
 
 function App() {
@@ -8,14 +8,20 @@ function App() {
 
   const getJobs = () => {
     axios.get('/api/morse/jobs')
-      .then((data) => {
+      .then(({data}) => {
         setJobs(data);
       })
       .catch((err) => console.log(err));
   };
 
+  useEffect(() => {
+    getJobs();
+  });
+
     return (
-        <div>React is working</div>
+      <div>
+        <JobList jobs={jobs}/>
+      </div>
     );
 };
 
