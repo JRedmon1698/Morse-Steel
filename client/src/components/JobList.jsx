@@ -5,9 +5,11 @@ const JobList = ({ jobs }) => {
 
   return (
     <div>
-      {/* {jobs.map((job, i) => {
-        <Job />
-      })} */}
+      {/* {jobs.map((job, i) => (
+        <div key={i}>
+        <Job job={job}/>
+        </div>
+      ))} */}
       {console.log(jobs)}
     </div>
   );

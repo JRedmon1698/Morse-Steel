@@ -8,7 +8,7 @@ function App() {
 
   const getJobs = () => {
     axios.get('/api/morse/jobs')
-      .then(({data}) => {
+      .then(({ data }) => {
         setJobs(data);
       })
       .catch((err) => console.log(err));
