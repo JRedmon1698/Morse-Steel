@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Job = ({ job }) => {
   return (
     <div>
-      {job}
+      {/* {console.log(job)} */}
     </div>
   );
 };

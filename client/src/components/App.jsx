@@ -7,9 +7,9 @@ function App() {
   const [jobs, setJobs] = useState([]);
 
   const getJobs = () => {
-    axios.get('/api/morse/jobs')
+    axios.get('/api/morse/json/jobs')
       .then(({ data }) => {
-        setJobs(data);
+        setJobs(data.data);
       })
       .catch((err) => console.log(err));
   };

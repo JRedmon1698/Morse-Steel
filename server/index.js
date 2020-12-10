@@ -37,7 +37,7 @@ app.get('/api/morse/jobs', (req, res) => {
 });
 
 // json project table request
-app.get('/api/morse/json/table', (req, res) => {
+app.get('/api/morse/json/jobs', (req, res) => {
   const headers = {
     'QB-Realm-Hostname': `${hostName}`,
     'User-Agent': 'Joe',
@@ -55,7 +55,7 @@ app.get('/api/morse/json/table', (req, res) => {
     'groupBy': [
       {
         'fieldId': 20,
-        'grouping': 'equal-values'
+        'grouping': 'ASC'
       }
     ],
     'options': {
