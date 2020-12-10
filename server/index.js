@@ -12,6 +12,7 @@ const PORT = 3002;
 
 const morseSteelTeamMembers = 'https://morsesteel.quickbase.com/db/bqv7vttbx';
 const morseSteelJobs = 'https://morsesteel.quickbase.com/db/bqs3mx37c';
+const hostName = 'morsesteel.quickbase.com';
 
 const appId = 'bqs3mx358';
 const projectTableId = 'bqs3mx37c';
@@ -22,7 +23,7 @@ app.get('/api/morse/team', (req, res) => {
   const reqUrl = `${morseSteelTeamMembers}?a=API_DoQuery&fmt=structured&includeRids=1&query={10.EX.'Foreman'}&usertoken=${token}`;
 
   axios(reqUrl)
-    .then(({ data }) =>res.send(data))
+    .then(({ data }) => res.send(data))
     .catch((err) => console.log(err));
 });
 
@@ -35,9 +36,21 @@ app.get('/api/morse/jobs', (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// json req
+// json project table request
 app.get('/api/morse/json/table', (req, res) => {
-  const reqUrl = `https://api.quickbase.com/v1/tables/{tableId}?appId=`;
+  const options = {
+    headers: {
+    'QB-Realm-Hostname': `${hostName}`,
+    'User-Agent': 'Joe',
+    'Authorization': `QB-USER-TOKEN ${token}`,
+    'Content-Type': 'application/json'
+    }
+  };
+  const reqUrl = `https://api.quickbase.com/v1/tables/${projectTableId}?appId=${appId}`;
+
+  axios(reqUrl, options)
+    .then(({ data }) => res.send(data))
+    .catch((err) => console.log(err));
 });
 
 app.listen(PORT, () => {
