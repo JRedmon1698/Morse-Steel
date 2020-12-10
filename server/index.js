@@ -38,17 +38,40 @@ app.get('/api/morse/jobs', (req, res) => {
 
 // json project table request
 app.get('/api/morse/json/table', (req, res) => {
-  const options = {
-    headers: {
+  const headers = {
     'QB-Realm-Hostname': `${hostName}`,
     'User-Agent': 'Joe',
     'Authorization': `QB-USER-TOKEN ${token}`,
     'Content-Type': 'application/json'
+    };
+
+  const body = {
+    'from': `${projectTableId}`,
+    'select': [
+      20, 21, 113, 132, 129
+    ],
+    'where': '',
+    'sortBy': false,
+    'groupBy': [
+      {
+        'fieldId': 20,
+        'grouping': 'equal-values'
+      }
+    ],
+    'options': {
+      'skip': 0,
+      'top': 0,
+      'compareWithAppLocalTime': false
     }
   };
-  const reqUrl = `https://api.quickbase.com/v1/tables/${projectTableId}?appId=${appId}`;
+  const reqUrl = `https://api.quickbase.com/v1/records/query`;
 
-  axios(reqUrl, options)
+  axios({
+    method: 'POST',
+    url: reqUrl,
+    headers,
+    data: body
+  })
     .then(({ data }) => res.send(data))
     .catch((err) => console.log(err));
 });
