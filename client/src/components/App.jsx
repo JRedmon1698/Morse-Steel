@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProjectList from './ProjectList.jsx';
-import TeamMembers from './TeamMembers.jsx';
+import TeamMemberList from './TeamMemberList.jsx';
 import styled from 'styled-components';
 
 function App() {
-  const [project, setProject] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [view, setView] = useState('home');
 
   const getProjects = () => {
@@ -20,6 +20,14 @@ function App() {
     setView('projects');
   };
 
+  const displayTeamMemberView = () => {
+    setView('team');
+  };
+
+  const displayHomeView = () => {
+    setView('home');
+  };
+
   useEffect(() => {
     getProjects();
   });
@@ -27,26 +35,37 @@ function App() {
   if (view === 'home') {
     return (
       <div>
-        <h1>Morse Steel Projects and Team Members</h1>
+        <h1>Morse Steel Projects and Team Members Home</h1>
         <div>
-          <ProjectButton>Projects</ProjectButton>
+          <ProjectButton onClick={displayProjectView}>Projects</ProjectButton>
         </div>
         <div>
-          <TMButton>Team Members</TMButton>
+          <TMButton onClick={displayTeamMemberView}>Team Members</TMButton>
         </div>
       </div>
     );
   };
 
-
   if (view === 'projects') {
     return (
       <div>
-        <h1>Morse Steel Projects and Team Members</h1>
+        <h1>Morse Steel Projects</h1>
         <ProjectList projects={projects} />
+        <BackButton onClick={displayHomeView}>Back</BackButton>
       </div>
     );
-  }
+  };
+
+  if (view === 'team') {
+    return (
+      <div>
+        <h1>Morse Steel Team Members</h1>
+        <TeamMemberList />
+        <BackButton onClick={displayHomeView}>Back</BackButton>
+      </div>
+    );
+  };
+
 };
 
 export default App;
@@ -63,4 +82,11 @@ const TMButton = styled.button`
     cursor: pointer;
   }
   margin-top: 10px;
+`;
+
+const BackButton = styled.button`
+  :hover {
+    cursor: pointer;
+  }
+  margin-top: 15px;
 `;
