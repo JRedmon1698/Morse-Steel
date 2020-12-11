@@ -48,7 +48,8 @@ app.get('/api/morse/json/jobs', (req, res) => {
   const body = {
     'from': `${projectTableId}`,
     'select': [
-      20, 21, 113, 132, 129
+      20, 21, 22, 27, 30, 45, 80, 113, 120, 129, 131, 
+      132, 140, 149, 157, 159, 161
     ],
     'where': '',
     'sortBy': false,

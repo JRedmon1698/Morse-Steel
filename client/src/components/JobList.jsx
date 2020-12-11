@@ -10,7 +10,7 @@ const JobList = ({ jobs }) => {
     <div>
        {jobs.map((job, i) => (
          <div key={i}>
-         <h3>Project: </h3>
+         <h3>{job[21].value}</h3>
         <Job job={job} />
         </div>
       ))}
