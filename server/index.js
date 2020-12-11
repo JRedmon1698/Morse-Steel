@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 const PORT = 3002;
 
 const morseSteelTeamMembers = 'https://morsesteel.quickbase.com/db/bqv7vttbx';
-const morseSteelJobs = 'https://morsesteel.quickbase.com/db/bqs3mx37c';
+const morseSteelProjects = 'https://morsesteel.quickbase.com/db/bqs3mx37c';
 const hostName = 'morsesteel.quickbase.com';
 
 const appId = 'bqs3mx358';
@@ -27,9 +27,9 @@ app.get('/api/morse/team', (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// jobs
-app.get('/api/morse/jobs', (req, res) => {
-  const reqUrl = `${morseSteelJobs}?a=API_DoQuery&fmt=structured&includeRids=1&usertoken=${token}`;
+// projects
+app.get('/api/morse/projects', (req, res) => {
+  const reqUrl = `${morseSteelProjects}?a=API_DoQuery&fmt=structured&includeRids=1&usertoken=${token}`;
 
   axios(reqUrl)
     .then(({ data }) => res.send(data))
@@ -37,7 +37,7 @@ app.get('/api/morse/jobs', (req, res) => {
 });
 
 // json project table request
-app.get('/api/morse/json/jobs', (req, res) => {
+app.get('/api/morse/json/projects', (req, res) => {
   const headers = {
     'QB-Realm-Hostname': `${hostName}`,
     'User-Agent': 'Joe',
