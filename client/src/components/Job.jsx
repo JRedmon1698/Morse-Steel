@@ -3,7 +3,12 @@ import React, { useState } from 'react';
 const Job = ({ job }) => {
   return (
     <div>
-      {/* {console.log(job)} */}
+    <div>
+      Project Number: {job[20].value}
+    </div>
+    <div>
+      Project Name: {job[21].value}
+    </div>
     </div>
   );
 };
