@@ -6,12 +6,13 @@
 // vacay grey?
 
 import React, { useState } from 'react';
+import TeamMember from './TeamMember.jsx';
 
 const TeamMemberList = () => {
 
   return (
     <div>
-      Team members go here
+      <TeamMember />
     </div>
   );
 };
