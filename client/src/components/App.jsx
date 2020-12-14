@@ -54,7 +54,8 @@ function App() {
           <HomeTitleWrapper>
             Project and Team Member Manager
         </HomeTitleWrapper>
-          <DropBoxLink></DropBoxLink>
+          <DropBoxLink href='https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0' 
+          target='_blank'/>
         </div>
         <TitlePicture />
         <div>
@@ -103,7 +104,7 @@ const HomeTitleWrapper = styled.div`
   margin-left: 30px;
 `;
 
-const DropBoxLink = styled.button`
+const DropBoxLink = styled.a`
   background-image: url(${dropboxImage});
   padding: 12px;
   float: right;
