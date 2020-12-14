@@ -41,6 +41,10 @@ function App() {
     getProjects();
   });
 
+  useEffect(() => {
+    getTeam();
+  });
+
   if (view === 'home') {
     return (
       <div>
@@ -69,7 +73,7 @@ function App() {
     return (
       <div>
         <h1>Morse Steel Team Members</h1>
-        <TeamMemberList />
+        <TeamMemberList team={team}/>
         <BackButton onClick={displayHomeView}>Back</BackButton>
       </div>
     );

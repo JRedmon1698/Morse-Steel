@@ -10,6 +10,10 @@ import TeamMember from './TeamMember.jsx';
 
 const TeamMemberList = ({ team }) => {
 
+  if (team.length === 0) {
+    return null;
+  }
+
   return (
     <div>
       {team.map((teamMember, i) => (
