@@ -5,6 +5,7 @@ import TeamMemberList from './TeamMemberList.jsx';
 import styled from 'styled-components';
 import morseSteelImage from '../../images/morse-steel.jpg';
 import dropboxImage from '../../images/dropbox.png';
+import quickbaseImage from '../../images/quickbase.png';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -56,6 +57,8 @@ function App() {
         </HomeTitleWrapper>
           <DropBoxLink href='https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0' 
           target='_blank'/>
+          <QuickbaseLink href='https://morsesteel.quickbase.com/db/main?a=myqb'
+          target='_blank' />
         </div>
         <TitlePicture />
         <div>
@@ -118,6 +121,19 @@ const DropBoxLink = styled.a`
   }
 `;
 
+const QuickbaseLink = styled.a`
+  background-image: url(${quickbaseImage});
+  padding: 13px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+  :hover {
+    cursor: pointer;
+  }
+`;
+
 const ProjectButton = styled.button`
   :hover {
     cursor: pointer;
@@ -152,7 +168,6 @@ const BackButton = styled.button`
   }
   margin-top: 15px;
 `;
-
 
 const TitlePicture = styled.div`
   background-image: url(${morseSteelImage});
