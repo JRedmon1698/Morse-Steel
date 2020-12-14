@@ -3,6 +3,7 @@ import axios from 'axios';
 import ProjectList from './ProjectList.jsx';
 import TeamMemberList from './TeamMemberList.jsx';
 import styled from 'styled-components';
+import morseSteelImage from '../images/morse-steel.jpg';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -101,4 +102,8 @@ const BackButton = styled.button`
     cursor: pointer;
   }
   margin-top: 15px;
+`;
+
+const TitleWrapper = styled.div`
+  background-image: url(${morseSteelImage})
 `;

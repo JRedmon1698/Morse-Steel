@@ -4,7 +4,7 @@ const TeamMember = ({ teamMember }) => {
 
     return (
         <div>
-            {teamMember[7].value}
+          {teamMember[35].value}
         </div>
     );
 };
