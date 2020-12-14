@@ -8,11 +8,15 @@
 import React, { useState } from 'react';
 import TeamMember from './TeamMember.jsx';
 
-const TeamMemberList = () => {
+const TeamMemberList = ({ team }) => {
 
   return (
     <div>
-      <TeamMember />
+      {team.map((teamMember, i) => (
+        <div key={i}>
+          <TeamMember teamMember={teamMember} />
+        </div>
+      ))}
     </div>
   );
 };

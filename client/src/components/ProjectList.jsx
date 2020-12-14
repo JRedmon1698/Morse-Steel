@@ -5,7 +5,7 @@ const ProjectList = ({ projects }) => {
   if (projects.length === 0) {
     return null;
   }
-// properties of data trying to be pulled before data is populated 
+
   return (
     <div>
        {projects.map((project, i) => (

@@ -6,12 +6,21 @@ import styled from 'styled-components';
 
 function App() {
   const [projects, setProjects] = useState([]);
+  const [team, setTeam] = useState([]);
   const [view, setView] = useState('home');
 
   const getProjects = () => {
     axios.get('/api/morse/json/projects')
       .then(({ data }) => {
         setProjects(data.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const getTeam = () => {
+    axios.get('/api/morse/json/team')
+      .then(({ data }) => {
+        setTeam(data.data);
       })
       .catch((err) => console.log(err));
   };

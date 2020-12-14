@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const TeamMember = () => {
+const TeamMember = ({ teamMember }) => {
 
     return (
         <div>
-            Single team member
+            {teamMember[7].value}
         </div>
     );
 };
