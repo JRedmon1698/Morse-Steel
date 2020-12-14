@@ -3,7 +3,8 @@ import axios from 'axios';
 import ProjectList from './ProjectList.jsx';
 import TeamMemberList from './TeamMemberList.jsx';
 import styled from 'styled-components';
-import morseSteelImage from '../images/morse-steel.jpg';
+import morseSteelImage from '../../images/morse-steel.jpg';
+import dropboxImage from '../../images/dropbox.png';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -49,7 +50,13 @@ function App() {
   if (view === 'home') {
     return (
       <div>
-        <h1>Morse Steel Projects and Team Members Home</h1>
+        <div>
+          <HomeTitleWrapper>
+            Project and Team Member Manager
+        </HomeTitleWrapper>
+          <DropBoxLink></DropBoxLink>
+        </div>
+        <TitlePicture />
         <div>
           <ProjectButton onClick={displayProjectView}>Projects</ProjectButton>
         </div>
@@ -63,7 +70,10 @@ function App() {
   if (view === 'projects') {
     return (
       <div>
-        <h1>Morse Steel Projects</h1>
+        <div>
+          <TitlePicture />
+        </div>
+        <h1>Projects</h1>
         <ProjectList projects={projects} />
         <BackButton onClick={displayHomeView}>Back</BackButton>
       </div>
@@ -73,8 +83,11 @@ function App() {
   if (view === 'team') {
     return (
       <div>
-        <h1>Morse Steel Team Members</h1>
-        <TeamMemberList team={team}/>
+        <div>
+          <TitlePicture />
+        </div>
+        <h1>Team Members</h1>
+        <TeamMemberList team={team} />
         <BackButton onClick={displayHomeView}>Back</BackButton>
       </div>
     );
@@ -83,19 +96,54 @@ function App() {
 
 export default App;
 
-const ProjectButton = styled.button`
+const HomeTitleWrapper = styled.div`
+  font-size: 25px;
+  font-weight: 700;
+  float: right;
+  margin-left: 30px;
+`;
+
+const DropBoxLink = styled.button`
+  background-image: url(${dropboxImage});
+  padding: 12px;
+  float: right;
+  margin-top: 20px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
   :hover {
     cursor: pointer;
   }
-  margin-bottom: 10px;
+`;
+
+const ProjectButton = styled.button`
+  :hover {
+    cursor: pointer;
+    background-color: green;
+  }
+  margin-top: 10px;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 7px;
+  position: relative;
+  float: left;
+  margin-left: 25%;
 `;
 
 const TMButton = styled.button`
   :hover {
     cursor: pointer;
+    background-color: green;
   }
   margin-top: 10px;
-`;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 7px;
+  position: relative;
+  float: right; 
+  margin-right: 25%;
+  `;
 
 const BackButton = styled.button`
   :hover {
@@ -104,6 +152,11 @@ const BackButton = styled.button`
   margin-top: 15px;
 `;
 
-const TitleWrapper = styled.div`
-  background-image: url(${morseSteelImage})
+
+const TitlePicture = styled.div`
+  background-image: url(${morseSteelImage});
+  padding: 190px;
+  background-repeat: no-repeat;
+  margin: 30px;
+
 `;
