@@ -40,13 +40,13 @@ function App() {
     setView('home');
   };
 
-  // useEffect(() => {
-  //   getProjects();
-  // });
+  useEffect(() => {
+    getProjects();
+  }, []);
 
-  // useEffect(() => {
-  //   getTeam();
-  // });
+  useEffect(() => {
+    getTeam();
+  }, []);
 
   if (view === 'home') {
     return (
@@ -155,11 +155,9 @@ const QuickbaseLink = styled.a`
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-
   :hover {
     cursor: pointer;
   }
-  
 `;
 
 const ProjectButton = styled.button`
