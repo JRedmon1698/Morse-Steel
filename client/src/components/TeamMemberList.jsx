@@ -19,6 +19,7 @@ const TeamMemberList = ({ team }) => {
       {team.map((teamMember, i) => (
         <div key={i}>
           <TeamMember teamMember={teamMember} />
+          
         </div>
       ))}
     </div>

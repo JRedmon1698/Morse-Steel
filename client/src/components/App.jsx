@@ -40,25 +40,26 @@ function App() {
     setView('home');
   };
 
-  useEffect(() => {
-    getProjects();
-  });
+  // useEffect(() => {
+  //   getProjects();
+  // });
 
-  useEffect(() => {
-    getTeam();
-  });
+  // useEffect(() => {
+  //   getTeam();
+  // });
 
   if (view === 'home') {
     return (
       <div>
         <div>
-          <HomeTitleWrapper>
+        <HomeTitleWrapper>
             Project and Team Member Manager
-        </HomeTitleWrapper>
-          <DropBoxLink href='https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0' 
+        
+        <DropBoxLink href='https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0' 
           target='_blank'/>
           <QuickbaseLink href='https://morsesteel.quickbase.com/db/main?a=myqb'
           target='_blank' />
+          </HomeTitleWrapper>
         </div>
         <TitlePicture />
         <div>
@@ -104,34 +105,41 @@ const HomeTitleWrapper = styled.div`
   font-size: 25px;
   font-weight: 700;
   float: right;
-  margin-left: 30px;
+  margin-bottom: 10px;
+  z-index: 1;
+  display: grid;
 `;
 
 const DropBoxLink = styled.a`
   background-image: url(${dropboxImage});
   padding: 12px;
   float: right;
-  margin-top: 20px;
-  margin-right: 10px;
+  margin-top: 100px;
+
   background-repeat: no-repeat;
   background-position: center;
   border: none;
+  z-index: 2;
   :hover {
     cursor: pointer;
   }
+  
 `;
 
 const QuickbaseLink = styled.a`
   background-image: url(${quickbaseImage});
   padding: 13px;
   float: right;
-  margin-top: 20px;
-  margin-right: 35px;
+ 
+  margin-top: 50px;;
   background-repeat: no-repeat;
   background-position: center;
+  border: none;
+  z-index: 3;
   :hover {
     cursor: pointer;
   }
+  
 `;
 
 const ProjectButton = styled.button`
