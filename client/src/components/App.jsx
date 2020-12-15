@@ -52,14 +52,21 @@ function App() {
     return (
       <div>
         <div>
+        <LinkWrapper>
         <HomeTitleWrapper>
             Project and Team Member Manager
-        
+            </HomeTitleWrapper>
+            <DropboxDiv>
+              Dropbox
         <DropBoxLink href='https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0' 
           target='_blank'/>
+          </DropboxDiv>
+          <QuickbaseDiv>
+            Quickbase
           <QuickbaseLink href='https://morsesteel.quickbase.com/db/main?a=myqb'
           target='_blank' />
-          </HomeTitleWrapper>
+          </QuickbaseDiv>
+          </LinkWrapper>
         </div>
         <TitlePicture />
         <div>
@@ -104,22 +111,37 @@ export default App;
 const HomeTitleWrapper = styled.div`
   font-size: 25px;
   font-weight: 700;
-  float: right;
   margin-bottom: 10px;
-  z-index: 1;
-  display: grid;
+  margin-right: 40px;
+`;
+
+const LinkWrapper = styled.div`
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+`;
+
+const DropboxDiv = styled.div`
+  float: left;
+  margin-top: 20px;
+  font-size: 16px;
+  margin-left: 20px;
+`;
+
+const QuickbaseDiv = styled.div`
+  float: right;
+  margin-right: 80px;
+  margin-top: 20px;
+  font-size: 16px;
 `;
 
 const DropBoxLink = styled.a`
   background-image: url(${dropboxImage});
   padding: 12px;
-  float: right;
-  margin-top: 100px;
-
+  margin-left: 20px;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  z-index: 2;
   :hover {
     cursor: pointer;
   }
@@ -129,13 +151,11 @@ const DropBoxLink = styled.a`
 const QuickbaseLink = styled.a`
   background-image: url(${quickbaseImage});
   padding: 13px;
-  float: right;
- 
-  margin-top: 50px;;
+  margin-left: 20px;
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  z-index: 3;
+
   :hover {
     cursor: pointer;
   }
