@@ -41,7 +41,8 @@ app.get('/api/morse/json/team', (req, res) => {
   const body = {
     'from': `${teamMemberTableId}`,
     'select': [
-      35, 7
+      35, 10, 11, 12, 13, 14, 15, 70, 16, 71, 
+      9, 20, 33, 58
     ],
     'where': '',
     'sortBy': false,

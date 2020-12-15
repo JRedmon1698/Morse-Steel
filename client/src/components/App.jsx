@@ -165,7 +165,7 @@ const ProjectButton = styled.button`
     cursor: pointer;
     background-color: green;
   }
-  margin-top: 10px;
+  margin-top: 100px;
   font-size: 20px;
   padding: 20px;
   border-radius: 7px;
@@ -179,7 +179,7 @@ const TMButton = styled.button`
     cursor: pointer;
     background-color: green;
   }
-  margin-top: 10px;
+  margin-top: 100px;
   font-size: 20px;
   padding: 20px;
   border-radius: 7px;
@@ -197,8 +197,7 @@ const BackButton = styled.button`
 
 const TitlePicture = styled.div`
   background-image: url(${morseSteelImage});
-  padding: 190px;
+  padding: 100px;
   background-repeat: no-repeat;
   margin: 30px;
-
 `;
