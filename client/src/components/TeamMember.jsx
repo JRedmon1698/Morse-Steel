@@ -16,7 +16,7 @@ const TeamMember = ({ teamMember }) => {
     }
   };
 
-  // junior gold
+// junior gold
 // apprentice lime green
 // foreman purple
 // gen. formean light blue
@@ -33,9 +33,6 @@ const TeamMember = ({ teamMember }) => {
     return (
         <div>
           {teamMember[35].value}
-          {/* {isActive(teamMember[11].value)} */}
-          {console.log(teamMember[11].value)}
-          
         </div>
     );
 };
