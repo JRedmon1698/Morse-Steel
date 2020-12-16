@@ -6,26 +6,18 @@ import LabelIcon from '@material-ui/icons/Label';
 const TeamMember = ({ teamMember }) => {
 
   const isActive = (status) => {
-    
       if (status === 'Active') {
         return CheckCircleIcon;
       } else if (status === 'Inactive') {
         return CancelIcon;
       }
       return null;
-    
   };
 
-// junior gold
-// apprentice lime green
-// foreman purple
-// gen. formean light blue
-// superint. pink
-// vacay grey?
   let positionColor = 'black';
-
+  const status = teamMember[11].value;
+  
   const colorCodePosition = (pos) => {
-    
     if (pos === 'Junior') {
       positionColor = 'orange';
     } else if (pos === 'Apprentice') {
@@ -38,15 +30,33 @@ const TeamMember = ({ teamMember }) => {
       positionColor = 'pink';
     } 
     positionColor = 'black';
-  
   };
-
+  
+  if (status ==='Active') {
     return (
-        <div>
-          {teamMember[35].value}
-        </div>
-    );
+      <div>
+            {teamMember[35].value}
+            <CheckCircleIcon style={{ fill: 'green' }} />
+          </div>
+      );
+  }
+  if (status === 'Inactive') {
+    return (
+      <div>
+            {teamMember[35].value}
+            <CancelIcon style={{ fill: 'red' }} />
+          </div>
+      );
+  }
     
-};
-
-export default TeamMember;
+  };
+  
+  export default TeamMember;
+  
+  
+  // junior gold
+  // apprentice lime green
+  // foreman purple
+  // gen. formean light blue
+  // superint. pink
+  // vacay grey?
