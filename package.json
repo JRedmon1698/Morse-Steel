@@ -36,6 +36,7 @@
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1",
     "twilio": "^3.54.1",
+    "twilio-cli": "^2.15.1",
     "webpack": "^5.9.0"
   },
   "devDependencies": {
