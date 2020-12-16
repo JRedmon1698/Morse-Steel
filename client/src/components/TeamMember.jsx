@@ -35,21 +35,21 @@ const TeamMember = ({ teamMember }) => {
   if (status ==='Active') {
     return (
       <div>
-            {teamMember[35].value}
-            <CheckCircleIcon style={{ fill: 'green' }} />
-          </div>
+        {teamMember[35].value}
+        <CheckCircleIcon style={{ fill: 'green' }} />
+      </div>
       );
-  }
+  };
   if (status === 'Inactive') {
     return (
       <div>
-            {teamMember[35].value}
-            <CancelIcon style={{ fill: 'red' }} />
-          </div>
+        {teamMember[35].value}
+        <CancelIcon style={{ fill: 'red' }} />
+      </div>
       );
-  }
-    
   };
+    
+};
   
   export default TeamMember;
   
