@@ -6,14 +6,14 @@ import LabelIcon from '@material-ui/icons/Label';
 const TeamMember = ({ teamMember }) => {
 
   const isActive = (status) => {
-    if (status) {
+    
       if (status === 'Active') {
         return CheckCircleIcon;
       } else if (status === 'Inactive') {
         return CancelIcon;
       }
       return null;
-    }
+    
   };
 
 // junior gold
@@ -22,19 +22,31 @@ const TeamMember = ({ teamMember }) => {
 // gen. formean light blue
 // superint. pink
 // vacay grey?
+  let positionColor = 'black';
 
-  // const colorCodePosition = (pos) => {
-  //   let positionColor = 'black';
-  //   if (pos === 'Junior) {
-
-  //   }
-  // };
+  const colorCodePosition = (pos) => {
+    
+    if (pos === 'Junior') {
+      positionColor = 'orange';
+    } else if (pos === 'Apprentice') {
+      positionColor = 'lightgreen';
+    } else if (pos.includes('Foreman')) {
+      positionColor = 'purple';
+    } else if (pos === 'General Foreman') {
+      positionColor = 'lightblue';
+    } else if (pos === 'Superintendent') {
+      positionColor = 'pink';
+    } 
+    positionColor = 'black';
+  
+  };
 
     return (
         <div>
           {teamMember[35].value}
         </div>
     );
+    
 };
 
 export default TeamMember;
