@@ -14,23 +14,23 @@ const TeamMember = ({ teamMember }) => {
       return null;
   };
 
-  let positionColor = 'black';
   const status = teamMember[11].value;
   
-  const colorCodePosition = (pos) => {
-    if (pos === 'Junior') {
-      positionColor = 'orange';
-    } else if (pos === 'Apprentice') {
-      positionColor = 'lightgreen';
-    } else if (pos.includes('Foreman')) {
-      positionColor = 'purple';
-    } else if (pos === 'General Foreman') {
-      positionColor = 'lightblue';
-    } else if (pos === 'Superintendent') {
-      positionColor = 'pink';
-    } 
-    positionColor = 'black';
-  };
+  // let positionColor = 'black';
+  // const colorCodePosition = (pos) => {
+  //   if (pos === 'Junior') {
+  //     positionColor = 'orange';
+  //   } else if (pos === 'Apprentice') {
+  //     positionColor = 'lightgreen';
+  //   } else if (pos.includes('Foreman')) {
+  //     positionColor = 'purple';
+  //   } else if (pos === 'General Foreman') {
+  //     positionColor = 'lightblue';
+  //   } else if (pos === 'Superintendent') {
+  //     positionColor = 'pink';
+  //   } 
+  //   positionColor = 'black';
+  // };
   
   if (status ==='Active') {
     return (
@@ -39,7 +39,8 @@ const TeamMember = ({ teamMember }) => {
         <CheckCircleIcon style={{ fill: 'green' }} />
       </div>
       );
-  };
+  }
+
   if (status === 'Inactive') {
     return (
       <div>
