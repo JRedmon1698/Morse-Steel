@@ -5,6 +5,7 @@ const path = require("path");
 const axios = require("axios");
 const token = require('../quickbase.js');
 const twilio = require('../twilio/twilioServer.js');
+const { client, sourceNumber, destinationNumber } = require('../twilio/config.js');
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
@@ -119,6 +120,20 @@ app.get('/api/morse/json/projects', (req, res) => {
   })
     .then(({ data }) => res.send(data))
     .catch((err) => console.log(err));
+});
+
+// twilio test call
+app.post('/api/twilio/test', (req, res) => {
+  console.log(sourceNumber);
+  client.messages
+  .create({
+     body: 'This is a test.',
+     from: `${sourceNumber}`,
+     to: `${destinationNumber}`
+   })
+  .then(message => res.send('Success'))
+  .catch((err) => console.log(err));
+
 });
 
 app.listen(PORT, () => {
