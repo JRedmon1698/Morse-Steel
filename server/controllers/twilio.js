@@ -1,6 +1,7 @@
 const { client, sourceNumber, destinationNumber } = require('../../twilio/twilio.config.js');
 const axios = require('axios');
 const twilio = require('../../twilio/twilioServer.js');
+const Quickbase = require('./quickbase.js')
 
 exports.sendText = (req, res) => {
   client.messages
@@ -13,7 +14,11 @@ exports.sendText = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-
+// to do next: send text with specifics about project and team member 
+exports.sendTextWithQBInfo = (req, res) => {
+  Quickbase.getTeamMembers();
+  Quickbase.getProjects(req, res);
+};
 
 
 
