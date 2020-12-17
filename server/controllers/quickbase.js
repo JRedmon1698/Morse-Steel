@@ -5,12 +5,10 @@ const axios = require('axios');
 const morseSteelTeamMembers = 'https://morsesteel.quickbase.com/db/bqv7vttbx';
 const morseSteelProjects = 'https://morsesteel.quickbase.com/db/bqs3mx37c';
 const hostName = 'morsesteel.quickbase.com';
-exports.hostName = 'morsesteel.quickbase.com';
 
 const appId = 'bqs3mx358';
 const projectTableId = 'bqs3mx37c';
 const teamMemberTableId = 'bqv7vttbx';
-exports.teamMemberTableId = 'bqv7vttbx';
 
 // for getting field info for team members table in quickbase 
 exports.getTeamInfo = (req, res) => {

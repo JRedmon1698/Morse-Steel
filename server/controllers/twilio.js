@@ -1,6 +1,17 @@
+const { client, sourceNumber, destinationNumber } = require('../../twilio/twilio.config.js');
+const axios = require('axios');
+const twilio = require('../../twilio/twilioServer.js');
 
-
-
+exports.sendText = (req, res) => {
+  client.messages
+    .create({
+      body: 'This is a test.',
+      from: `${sourceNumber}`,
+      to: `${destinationNumber}`
+    })
+    .then(() => res.send('Success'))
+    .catch((err) => console.log(err));
+};
 
 
 
