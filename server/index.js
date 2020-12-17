@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
 const axios = require("axios");
-// const token = require('../quickbase.js');
+const token = require('../quickbase.config.js');
 const twilio = require('../twilio/twilioServer.js');
 // const { client, sourceNumber, destinationNumber } = require('../twilio/config.js');
 const Quickbase = require('./controllers/quickbase.js');
@@ -33,114 +33,61 @@ app.get('/api/morse/team', (req, res) => {
 
 // team members, json
 app.get('/api/morse/json/team', (req, res) => {
-  const reqUrl = `https://api.quickbase.com/v1/records/query`;
+  Quickbase.getTeamMembers(req, res);
+  // const reqUrl = `https://api.quickbase.com/v1/records/query`;
 
-  const headers = {
-    'QB-Realm-Hostname': `${hostName}`,
-    'User-Agent': 'Joe',
-    'Authorization': `QB-USER-TOKEN ${token}`,
-    'Content-Type': 'application/json'
-  };
+  // const headers = {
+  //   'QB-Realm-Hostname': `${Quickbase.hostName}`,
+  //   'User-Agent': 'Joe',
+  //   'Authorization': `QB-USER-TOKEN ${token}`,
+  //   'Content-Type': 'application/json'
+  // };
 
-  const body = {
-    'from': `${teamMemberTableId}`,
-    'select': [
-      35, 10, 11, 12, 13, 14, 15, 70, 16, 71, 
-      9, 20, 33, 58
-    ],
-    'where': '',
-    'sortBy': false,
-    'groupBy': [
-      {
-        'fieldId': 7,
-        'grouping': 'ASC'
-      },
-    ],
-    'options': {
-      'skip': 0,
-      'top': 0,
-      'compareWithAppLocalTime': false
-    },
-  };
+  // const body = {
+  //   'from': `${Quickbase.teamMemberTableId}`,
+  //   'select': [
+  //     35, 10, 11, 12, 13, 14, 15, 70, 16, 71, 
+  //     9, 20, 33, 58
+  //   ],
+  //   'where': '',
+  //   'sortBy': false,
+  //   'groupBy': [
+  //     {
+  //       'fieldId': 7,
+  //       'grouping': 'ASC'
+  //     },
+  //   ],
+  //   'options': {
+  //     'skip': 0,
+  //     'top': 0,
+  //     'compareWithAppLocalTime': false
+  //   },
+  // };
 
-  axios({
-    method: 'POST',
-    url: reqUrl,
-    headers,
-    data: body
-  })
-    .then(({ data }) => res.send(data))
-    .catch((err) => console.log(err));
+  // axios({
+  //   method: 'POST',
+  //   url: reqUrl,
+  //   headers,
+  //   data: body
+  // })
+  //   .then(({ data }) => res.send(data))
+  //   .catch((err) => console.log(err));
 });
 
 // projects, non-json
 app.get('/api/morse/projects', (req, res) => {
-  const reqUrl = `${morseSteelProjects}?a=API_DoQuery&fmt=structured&includeRids=1&usertoken=${token}`;
+  // const reqUrl = `${morseSteelProjects}?a=API_DoQuery&fmt=structured&includeRids=1&usertoken=${token}`;
 
-  axios(reqUrl)
-    .then(({ data }) => res.send(data))
-    .catch((err) => console.log(err));
+  // axios(reqUrl)
+  //   .then(({ data }) => res.send(data))
+  //   .catch((err) => console.log(err));
+  Quickbase.getProjectInfo(req, res);
 });
 
 // projects, json
 app.get('/api/morse/json/projects', (req, res) => {
-  const reqUrl = `https://api.quickbase.com/v1/records/query`;
+  Quickbase.getProjects(req, res);
 
-  const headers = {
-    'QB-Realm-Hostname': `${hostName}`,
-    'User-Agent': 'Joe',
-    'Authorization': `QB-USER-TOKEN ${token}`,
-    'Content-Type': 'application/json'
-    };
-
-  const body = {
-    'from': `${projectTableId}`,
-    'select': [
-      20, 21, 22, 27, 30, 45, 80, 113, 120, 129, 131, 
-      132, 140, 149, 157, 159, 161
-    ],
-    'where': '',
-    'sortBy': false,
-    'groupBy': [
-      {
-        'fieldId': 20,
-        'grouping': 'ASC'
-      },
-    ],
-    'options': {
-      'skip': 0,
-      'top': 0,
-      'compareWithAppLocalTime': false
-    },
-  };
-
-  axios({
-    method: 'POST',
-    url: reqUrl,
-    headers,
-    data: body
-  })
-    // .then(({ data }) => res.send(data))
-    .then(({ data }) => {
-      let message = '';
-      for (let i = 0; i < data.data.length; i += 1) {
-        if (data.data[i][20].value === '4862') {
-          message = (`Hello, ${data.data[0][113].value}, you should report for 
-          the ${data.data[0][132].value} project on ${data.data[0][30].value}.`)
-        }
-      }
-      console.log(message);
-      // .then((data) => {
-        console.log(message);
-        client.messages
-        .create({
-          body: message,
-          from: `${sourceNumber}`,
-          to: `${destinationNumber}`
-        })
-      })
-    // })
-    .catch((err) => console.log(err));
 });
 
 // twilio test call
