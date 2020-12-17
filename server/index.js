@@ -124,7 +124,7 @@ app.get('/api/morse/json/projects', (req, res) => {
 
 // twilio test call
 app.post('/api/twilio/test', (req, res) => {
-  console.log(sourceNumber);
+  
   client.messages
   .create({
      body: 'This is a test.',
