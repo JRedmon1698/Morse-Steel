@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const path = require("path");
-// const axios = require("axios");
 const Twilio = require('./controllers/twilio.js');
 const Quickbase = require('./controllers/quickbase.js');
 
@@ -11,7 +10,8 @@ app.use(express.static(path.join(__dirname, '/../client/dist')));
 
 const PORT = 3002;
 
-// Quickbase calls
+// * * * * * Quickbase calls * * * * *
+
 app.get('/api/morse/team', (req, res) => {
   Quickbase.getTeamInfo(req, res);
 });
@@ -28,7 +28,8 @@ app.get('/api/morse/json/projects', (req, res) => {
   Quickbase.getProjects(req, res);
 });
 
-// Twilio calls
+//  * * * * * Twilio calls * * * * *
+
 app.post('/api/twilio/test', (req, res) => {
   Twilio.sendText(req, res);
 });
