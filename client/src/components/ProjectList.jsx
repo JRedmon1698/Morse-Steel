@@ -21,7 +21,7 @@ const ProjectList = ({ projects }) => {
     );
   } else if (projectDetails !== null) {
     return (
-      <ProjectDetails />
+      <ProjectDetails projectDetails={projectDetails} setProjectDetails={setProjectDetails} />
     );
   }
 };
