@@ -86,7 +86,7 @@ function App() {
           <TitlePicture />
         </div>
         <h1>Projects</h1>
-        <ProjectList projects={projects} />
+        <ProjectList projects={projects} team={team} />
         <HomeButton onClick={displayHomeView}>Home</HomeButton>
       </div>
     );
