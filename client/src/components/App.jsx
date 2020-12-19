@@ -145,7 +145,6 @@ const DropBoxLink = styled.a`
   :hover {
     cursor: pointer;
   }
-  
 `;
 
 const QuickbaseLink = styled.a`
@@ -192,7 +191,7 @@ const HomeButton = styled.button`
   :hover {
     cursor: pointer;
   }
-  margin-top: 15px;
+  margin-top: 45px;
   padding: 10px;
   font-size 14px;
   background-color: green;

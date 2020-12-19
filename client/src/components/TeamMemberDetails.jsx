@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const TeamMemberDetails = ({ teamMemberDetails, setTeamMemberDetails, projects }) => {
 
   const getDetail = (value) => {
-    if (value === '') {
+    if (value === '' || value === null) {
       return 'none on file';
     }
     return value;
