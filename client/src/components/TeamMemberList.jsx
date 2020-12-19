@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import TeamMember from './TeamMember.jsx';
 import TeamMemberDetails from './TeamMemberDetails.jsx';
 
-const TeamMemberList = ({ team }) => {
+const TeamMemberList = ({ team, projects }) => {
   const [teamMemberDetails, setTeamMemberDetails] = useState(null);
 
   if (team.length === 0) {
@@ -29,17 +29,9 @@ const TeamMemberList = ({ team }) => {
     );
   } else if (teamMemberDetails !== null) {
     return (
-      <TeamMemberDetails teamMemberDetails={teamMemberDetails} setTeamMemberDetails={setTeamMemberDetails}/>
+      <TeamMemberDetails teamMemberDetails={teamMemberDetails} setTeamMemberDetails={setTeamMemberDetails} projects={projects} />
     );
   }
 };
 
 export default TeamMemberList;
-
-// const EmployeeClickHover = styled.div`
-//   :hover {
-//     cursor: pointer;
-//     font-color: blue;
-//     text-decoration: underline;
-//   }
-// `;

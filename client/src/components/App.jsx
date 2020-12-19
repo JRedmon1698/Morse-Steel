@@ -99,7 +99,7 @@ function App() {
           <TitlePicture />
         </div>
         <h1>Team Members</h1>
-        <TeamMemberList team={team} />
+        <TeamMemberList team={team} projects={projects} />
         <HomeButton onClick={displayHomeView}>Home</HomeButton>
       </div>
     );
@@ -196,6 +196,7 @@ const HomeButton = styled.button`
   padding: 10px;
   font-size 14px;
   background-color: green;
+  color: white;
 `;
 
 const TitlePicture = styled.div`

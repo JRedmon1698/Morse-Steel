@@ -57,7 +57,7 @@ export default TeamMember;
   const TeamMemberNameHover = styled.div`
   :hover {
     cursor: pointer;
-    font-color: blue;
+    color: blue;
     text-decoration: underline;
   }
   display: inline-block;
