@@ -5,11 +5,11 @@ import LabelIcon from '@material-ui/icons/Label';
 
 const TeamMember = ({ teamMember }) => {
 
-  const isActive = (status) => {
-      if (status === 'Active') {
-        return CheckCircleIcon;
-      } else if (status === 'Inactive') {
-        return CancelIcon;
+  const isActive = (activityStatus) => {
+      if (activityStatus === 'Active') {
+        return <CheckCircleIcon style={{ fill: 'green' }} />;
+      } else if (activityStatus === 'Inactive') {
+        return <CancelIcon style={{ fill: 'red' }} />;
       }
       return null;
   };
@@ -31,25 +31,13 @@ const TeamMember = ({ teamMember }) => {
   //   } 
   //   positionColor = 'black';
   // };
-  
-  if (status ==='Active') {
-    return (
-      <div>
-        {teamMember[35].value}
-        <CheckCircleIcon style={{ fill: 'green' }} />
-      </div>
-      );
-  }
 
-  if (status === 'Inactive') {
-    return (
-      <div>
-        {teamMember[35].value}
-        <CancelIcon style={{ fill: 'red' }} />
-      </div>
-      );
-  };
-    
+  return (
+    <div>
+      {teamMember[35].value}
+      {isActive(status)}
+    </div>
+    );
 };
   
   export default TeamMember;
