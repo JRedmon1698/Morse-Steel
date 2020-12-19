@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import CancelIcon from '@material-ui/icons/Cancel';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import LabelIcon from '@material-ui/icons/Label';
+import TeamMemberDetails from './TeamMemberDetails.jsx';
 
 const TeamMember = ({ teamMember }) => {
+  // const [teamMemberDetails, setTeamMemberDetails] = useState(null);
 
   const isActive = (activityStatus) => {
-      if (activityStatus === 'Active') {
-        return <CheckCircleIcon style={{ fill: 'green' }} />;
-      } else if (activityStatus === 'Inactive') {
-        return <CancelIcon style={{ fill: 'red' }} />;
-      }
-      return null;
+    if (activityStatus === 'Active') {
+      return <CheckCircleIcon style={{ fill: 'green' }} />;
+    } else if (activityStatus === 'Inactive') {
+      return <CancelIcon style={{ fill: 'red' }} />;
+    }
+    return null;
   };
 
   const status = teamMember[11].value;
-  
+
+
   // let positionColor = 'black';
   // const colorCodePosition = (pos) => {
   //   if (pos === 'Junior') {
@@ -32,20 +36,28 @@ const TeamMember = ({ teamMember }) => {
   //   positionColor = 'black';
   // };
 
-  return (
-    <div>
-      {teamMember[35].value}
-      {isActive(status)}
-    </div>
+
+    return (
+      <div>
+        <TeamMemberNameHover>{teamMember[35].value} {isActive(status)}</TeamMemberNameHover> 
+      </div>
     );
 };
-  
-  export default TeamMember;
-  
-  
+
+export default TeamMember;
+
+
   // junior gold
   // apprentice lime green
   // foreman purple
   // gen. formean light blue
   // superint. pink
   // vacay grey?
+
+  const TeamMemberNameHover = styled.div`
+  :hover {
+    cursor: pointer;
+    font-color: blue;
+    text-decoration: underline;
+  }
+`;

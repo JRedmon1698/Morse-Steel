@@ -87,7 +87,7 @@ function App() {
         </div>
         <h1>Projects</h1>
         <ProjectList projects={projects} />
-        <BackButton onClick={displayHomeView}>Back</BackButton>
+        <HomeButton onClick={displayHomeView}>Home</HomeButton>
       </div>
     );
   };
@@ -100,7 +100,7 @@ function App() {
         </div>
         <h1>Team Members</h1>
         <TeamMemberList team={team} />
-        <BackButton onClick={displayHomeView}>Back</BackButton>
+        <HomeButton onClick={displayHomeView}>Home</HomeButton>
       </div>
     );
   };
@@ -188,11 +188,14 @@ const TMButton = styled.button`
   margin-right: 25%;
   `;
 
-const BackButton = styled.button`
+const HomeButton = styled.button`
   :hover {
     cursor: pointer;
   }
   margin-top: 15px;
+  padding: 10px;
+  font-size 14px;
+  background-color: green;
 `;
 
 const TitlePicture = styled.div`
