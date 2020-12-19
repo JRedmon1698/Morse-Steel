@@ -60,4 +60,6 @@ export default TeamMember;
     font-color: blue;
     text-decoration: underline;
   }
+  display: inline-block;
+  text-align: center;
 `;
