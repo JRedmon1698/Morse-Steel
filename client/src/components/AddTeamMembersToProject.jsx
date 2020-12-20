@@ -8,9 +8,6 @@ const AddTeamMembersToProject = ({ projectDetails, setProjectDetails, team }) =>
 
   return (
     <div>
-      <ConfirmModal confirmModalView={confirmModalView}
-        setConfirmModalView={setConfirmModalView}
-        setProjectDetails={setProjectDetails} />
       {team.map((teamMember, i) => (
         <div key={i}>
           <input type="checkbox" onChange={(e) => {
@@ -21,6 +18,11 @@ const AddTeamMembersToProject = ({ projectDetails, setProjectDetails, team }) =>
       <AddTeamMemberButton onClick={() => {
         setConfirmModalView(true);
       }}>Add to {projectDetails[21].value}</AddTeamMemberButton>
+      <ConfirmModal confirmModalView={confirmModalView}
+        setConfirmModalView={setConfirmModalView}
+        setProjectDetails={setProjectDetails}
+        projectDetails={projectDetails}
+        teamMembersToAdd={teamMembersToAdd} />
       {confirmModalView ? <PageMask /> : null}
     </div>
   );
