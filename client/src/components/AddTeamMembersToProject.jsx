@@ -60,4 +60,5 @@ const CancelButton = styled.button`
     cursor: pointer;
     border: 2px solid red;
   }
+  margin-left: 45px;
 `;
