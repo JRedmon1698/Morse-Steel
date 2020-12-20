@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import ConfirmModal from './ConfirmModal.jsx';
 
-const AddTeamMembersToProject = ({ projectDetails, setProjectDetails, team }) => {
+const AddTeamMembersToProject = ({ 
+  projectDetails, setProjectDetails, team, setAddTeamMemberView
+}) => {
   const [teamMembersToAdd, setTeamMemberstoAdd] = useState([]);
   const [confirmModalView, setConfirmModalView] = useState(false);
 
@@ -17,12 +19,15 @@ const AddTeamMembersToProject = ({ projectDetails, setProjectDetails, team }) =>
       ))}
       <AddTeamMemberButton onClick={() => {
         setConfirmModalView(true);
-      }}>Add to {projectDetails[21].value}</AddTeamMemberButton>
+      }}>Add to {projectDetails[21].value}</AddTeamMemberButton> <CancelButton onClick={() => {
+        setAddTeamMemberView(false);
+      }}>Cancel</CancelButton>
       <ConfirmModal confirmModalView={confirmModalView}
         setConfirmModalView={setConfirmModalView}
         setProjectDetails={setProjectDetails}
         projectDetails={projectDetails}
-        teamMembersToAdd={teamMembersToAdd} />
+        teamMembersToAdd={teamMembersToAdd}
+        setAddTeamMemberView={setAddTeamMemberView} />
       {confirmModalView ? <PageMask /> : null}
     </div>
   );
@@ -48,4 +53,11 @@ const PageMask = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
+`;
+
+const CancelButton = styled.button`
+  :hover {
+    cursor: pointer;
+    border: 2px solid red;
+  }
 `;
