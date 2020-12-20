@@ -32,7 +32,8 @@ const ProjectDetails = ({ projectDetails, setProjectDetails, team }) => {
     );
   } else if (addTeamMemberView === true) {
     return (
-      <AddTeamMembersToProject addTeamMemberView={addTeamMemberView} setAddTeamMemberView={setAddTeamMemberView} team={team} />
+      <AddTeamMembersToProject addTeamMemberView={addTeamMemberView} setAddTeamMemberView={setAddTeamMemberView} 
+      projectDetails={projectDetails} setProjectDetails={setProjectDetails} team={team} />
     );
   }
 };

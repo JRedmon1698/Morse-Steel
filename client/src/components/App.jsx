@@ -52,23 +52,23 @@ function App() {
     return (
       <div>
         <div>
-        <LinkWrapper>
-        <HomeTitleWrapper>
-            Project and Team Member Manager
+          <LinkWrapper>
+            <HomeTitleWrapper>
+              Project and Team Member Manager
             </HomeTitleWrapper>
             <DropboxDiv>
               Dropbox
-        <DropBoxLink href='https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0' 
-          target='_blank'/>
-          </DropboxDiv>
-          <QuickbaseDiv>
-            Quickbase
+        <DropBoxLink href='https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0'
+                target='_blank' />
+            </DropboxDiv>
+            <QuickbaseDiv>
+              Quickbase
           <QuickbaseLink href='https://morsesteel.quickbase.com/db/main?a=myqb'
-          target='_blank' />
-          </QuickbaseDiv>
+                target='_blank' />
+            </QuickbaseDiv>
           </LinkWrapper>
         </div>
-        <TitlePicture />
+        <TitlePicture/>
         <div>
           <ProjectButton onClick={displayProjectView}>Projects</ProjectButton>
         </div>
