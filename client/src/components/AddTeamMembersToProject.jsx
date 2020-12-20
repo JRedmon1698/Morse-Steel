@@ -2,18 +2,25 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const AddTeamMembersToProject = ({ projectDetails, setProjectDetails, team }) => {
-  const [teamMembersToAdd, setTeamMemberstoAdd] = useState({});
+  const [teamMembersToAdd, setTeamMemberstoAdd] = useState([]);
+  const [confirmModalView, setConfirmModalView] = usseState(false);
 
-  return (
-    <div>{console.log(projectDetails)}
-      {team.map((teamMember, i) => (
-        <div key={i}>
-          <input type="checkbox" onChange={() => console.log('change')}/> {teamMember[35].value}
-        </div>
-      ))}
-      <AddTeamMemberButton>Add to {projectDetails[21].value}</AddTeamMemberButton>
-    </div>
-  );
+  if (confirmModalView === false) {
+    return (
+      <div>
+        {team.map((teamMember, i) => (
+          <div key={i}>
+            <input type="checkbox" onChange={(e) => teamMembersToAdd.push(e.target.value)} value={teamMember[35].value} /> {teamMember[35].value}
+          </div>
+        ))}
+        <AddTeamMemberButton onClick={() => setConfirmModalView(true)}>Add to {projectDetails[21].value}</AddTeamMemberButton>
+      </div>
+    );
+  } else if (confirmModalView === true) {
+    return (
+      <ConfirmModal setAddTeamMemberView={setAddTeamMemberView} />
+    );
+  }
 };
 
 export default AddTeamMembersToProject;
