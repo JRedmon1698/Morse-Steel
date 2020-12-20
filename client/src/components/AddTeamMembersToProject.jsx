@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import ConfirmModal from './ConfirmModal.jsx';
+import MultipleTeamConfirmModal from './MultipleTeamConfirmModal.jsx';
 
 const AddTeamMembersToProject = ({ 
   projectDetails, setProjectDetails, team, setAddTeamMemberView
 }) => {
   const [teamMembersToAdd, setTeamMemberstoAdd] = useState([]);
-  const [confirmModalView, setConfirmModalView] = useState(false);
+  const [confirmMultipleModalView, setConfirmMultipleModalView] = useState(false);
 
   return (
     <div>
@@ -18,17 +18,17 @@ const AddTeamMembersToProject = ({
         </div>
       ))}
       <AddTeamMemberButton onClick={() => {
-        setConfirmModalView(true);
+        setConfirmMultipleModalView(true);
       }}>Add to {projectDetails[21].value}</AddTeamMemberButton> <CancelButton onClick={() => {
         setAddTeamMemberView(false);
       }}>Cancel</CancelButton>
-      <ConfirmModal confirmModalView={confirmModalView}
-        setConfirmModalView={setConfirmModalView}
+      <MultipleTeamConfirmModal confirmMultipleModalView={confirmMultipleModalView}
+        setConfirmMultipleModalView={setConfirmMultipleModalView}
         setProjectDetails={setProjectDetails}
         projectDetails={projectDetails}
         teamMembersToAdd={teamMembersToAdd}
         setAddTeamMemberView={setAddTeamMemberView} />
-      {confirmModalView ? <PageMask /> : null}
+      {confirmMultipleModalView ? <PageMask /> : null}
     </div>
   );
 };

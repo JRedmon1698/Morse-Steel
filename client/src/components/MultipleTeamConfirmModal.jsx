@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ConfirmModal = ({
-  confirmModalView, setConfirmModalView, projectDetails,
+const MultipleTeamConfirmModal = ({
+  confirmMultipleModalView, setConfirmMultipleModalView, projectDetails,
   setProjectDetails, teamMembersToAdd, setAddTeamMemberView
 }) => {
 
-  if (!confirmModalView) {
+  if (!confirmMultipleModalView) {
     return null;
   }
 
@@ -25,7 +25,7 @@ const ConfirmModal = ({
       {commafy(teamMembersToAdd)} added to {projectDetails[21].value}
       <div>
         <OkButton onClick={() => {
-          setConfirmModalView(false);
+          setConfirmMultipleModalView(false);
           setAddTeamMemberView(false);
           }}>Ok</OkButton>
       </div>
@@ -33,7 +33,7 @@ const ConfirmModal = ({
   );
 };
 
-export default ConfirmModal;
+export default MultipleTeamConfirmModal;
 
 const Modal = styled.div`
 width: 400px;

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import SingleTeamConfirmModal from './SingleTeamConfirmModal.jsx';
 
 const TeamMemberDetails = ({ teamMemberDetails, setTeamMemberDetails, projects }) => {
+  const [ singleConfirmView, setSingleConfirmView ] = useState(false);
 
   const getDetail = (value) => {
     if (value === '' || value === null) {
