@@ -3,12 +3,23 @@ const axios = require('axios');
 const twilio = require('../../twilio/twilioServer.js');
 const Quickbase = require('./quickbase.js')
 
+// exports.sendText = (req, res) => {
+//   client.messages
+//     .create({
+//       body: 'This is a test.',
+//       from: `${sourceNumber}`,
+//       to: `${destinationNumber}`
+//     })
+//     .then(() => res.send('Success'))
+//     .catch((err) => console.log(err));
+// };
+
 exports.sendText = (req, res) => {
   client.messages
     .create({
-      body: 'This is a test.',
+      body: req.body,
       from: `${sourceNumber}`,
-      to: `${destinationNumber}`
+      to: req.params.destinationNumber
     })
     .then(() => res.send('Success'))
     .catch((err) => console.log(err));

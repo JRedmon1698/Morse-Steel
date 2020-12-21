@@ -30,7 +30,7 @@ app.get('/api/morse/json/projects', (req, res) => {
 
 //  * * * * * Twilio calls * * * * *
 
-app.post('/api/twilio/test', (req, res) => {
+app.post('/api/twilio/text/:destinationNumber', (req, res) => {
   Twilio.sendText(req, res);
 });
 
