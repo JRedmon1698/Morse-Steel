@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -6,6 +6,7 @@ const MultipleTeamConfirmModal = ({
   confirmMultipleModalView, setConfirmMultipleModalView, projectDetails,
   setProjectDetails, teamMembersToAdd, setAddTeamMemberView, testTeamMember
 }) => {
+  const [sendTextBoolean, setSendTextBoolen] = useState(false);
 
   if (!confirmMultipleModalView) {
     return null;
@@ -24,9 +25,14 @@ const MultipleTeamConfirmModal = ({
     return finalCommafiedTeam;
   };
 
-  const sendTextToAddedTeamMembers = (teamMembers) => {
+  const sendTextToAddedTeamMembers = (teamMembers, project) => {
     for (let i = 0; i < teamMembers.length; i += 1) {
-      axios.post(`/api/twilio/text/+1${teamMembers[i][12].value}`)
+      let options = {
+        message: `Good afternoon, ${teamMembers[i][7].value}. This text is 
+        to inform you that you are scheduled to work the ${project[21].value} 
+        project, with an estimated start date of ${project[27].value}.`
+      };
+      axios.post(`/api/twilio/text/+1${teamMembers[i][12].value}`, options)
         .then(() => console.log(`Text sent to ${teamMembers[i][7].value}`))
         .catch((err) => console.log(err));
     }
@@ -43,7 +49,12 @@ const MultipleTeamConfirmModal = ({
             <input type="checkbox" /> no
           </TextCheckboxes>
           <OkButton onClick={() => {
-            setConfirmMultipleModalView(false);
+            if (!sendTextBoolean) {
+              setConfirmMultipleModalView(false);
+            } else if (sendTextBoolean) {
+              sendTextToAddedTeamMembers(teamMembersToAdd, projectDetails);
+              setConfirmMultipleModalView(false);
+            }
           }}>Ok</OkButton>
         </div>
       </Modal>
