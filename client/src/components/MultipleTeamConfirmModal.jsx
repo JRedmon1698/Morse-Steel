@@ -26,11 +26,16 @@ const MultipleTeamConfirmModal = ({
   if (teamMembersToAdd.length < 1) {
     return (
       <Modal>
-        Please select team members to add. 
+        Please select team members to add.
         <div>
+          <TextCheckboxes>
+            Send text message to added team members?
+            <input type="checkbox" /> yes
+            <input type="checkbox" /> no
+          </TextCheckboxes>
           <OkButton onClick={() => {
             setConfirmMultipleModalView(false);
-            }}>Ok</OkButton>
+          }}>Ok</OkButton>
         </div>
       </Modal>
     );
@@ -38,11 +43,18 @@ const MultipleTeamConfirmModal = ({
   return (
     <Modal>
       {commafy(teamMembersToAdd)} added to {projectDetails[21].value}
-      <div>{console.log(testTeamMember)}
+      <div>
+        <TextCheckboxes>
+          Send text message to added team members?
+          <div>
+            <input type="checkbox" /> yes
+            <input type="checkbox" /> no
+            </div>
+        </TextCheckboxes>
         <OkButton onClick={() => {
           setConfirmMultipleModalView(false);
           setAddTeamMemberView(false);
-          }}>Ok</OkButton>
+        }}>Ok</OkButton>
       </div>
     </Modal>
   );
@@ -80,5 +92,11 @@ const OkButton = styled.button`
   }
   background-color: lightgrey;
   border-radius: 6px;
-  margin-top: 150px;
+  margin-top: 25%;
+`;
+
+const TextCheckboxes = styled.div`
+  margin-top: 75px;
+  font-size 14px;
+  font-style: italic;
 `;
