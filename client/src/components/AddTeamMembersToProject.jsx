@@ -17,11 +17,13 @@ const AddTeamMembersToProject = ({
           }} value={teamMember[35].value} /> {teamMember[35].value}
         </div>
       ))}
+{/* ***** take out before deployment ***** */}
       <div>
           <input type="checkbox" onChange={(e) => {
             teamMembersToAdd.push(e.target.value);
           }} value={testTeamMember[35].value} /> {testTeamMember[35].value}
       </div>
+{/* ***** take out before deployment ***** */}
       <AddTeamMemberButton onClick={() => {
         setConfirmMultipleModalView(true);
       }}>Add to {projectDetails[21].value}</AddTeamMemberButton> <CancelButton onClick={() => {
