@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import morseSteelImage from '../../images/morse-steel.jpg';
 import dropboxImage from '../../images/dropbox.png';
 import quickbaseImage from '../../images/quickbase.png';
+import testTeamMember from '../../../client/sample.js';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -50,7 +51,7 @@ function App() {
 
   if (view === 'home') {
     return (
-      <div>
+      <div>{console.log(team[0])}
         <div>
           <LinkWrapper>
             <HomeTitleWrapper>

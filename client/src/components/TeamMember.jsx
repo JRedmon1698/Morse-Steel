@@ -5,8 +5,9 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import LabelIcon from '@material-ui/icons/Label';
 import TeamMemberDetails from './TeamMemberDetails.jsx';
 
+
 const TeamMember = ({ teamMember }) => {
-  // const [teamMemberDetails, setTeamMemberDetails] = useState(null);
+  const [teamMemberDetails, setTeamMemberDetails] = useState(null);
 
   const isActive = (activityStatus) => {
     if (activityStatus === 'Active') {
