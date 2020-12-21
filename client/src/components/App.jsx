@@ -87,7 +87,8 @@ function App() {
           <TitlePicture />
         </div>
         <h1>Projects</h1>
-        <ProjectList projects={projects} team={team} />
+        <ProjectList projects={projects} team={team} 
+        testTeamMember={testTeamMember} />
         <HomeButton onClick={displayHomeView}>Home</HomeButton>
       </div>
     );
@@ -100,7 +101,7 @@ function App() {
           <TitlePicture />
         </div>
         <h1>Team Members</h1>
-        <TeamMemberList team={team} projects={projects} />
+        <TeamMemberList team={team} projects={projects} testTeamMember={testTeamMember} />
         <HomeButton onClick={displayHomeView}>Home</HomeButton>
       </div>
     );

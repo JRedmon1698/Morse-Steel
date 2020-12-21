@@ -11,6 +11,9 @@ const MultipleTeamConfirmModal = ({
   }
 
   const commafy = (team) => {
+    if (team.length === 1) {
+      return team;
+    }
     let commafiedTeam = [];
     let finalCommafiedTeam = [];
     for (let i = 0; i < team.length - 1; i += 1) {
@@ -20,6 +23,18 @@ const MultipleTeamConfirmModal = ({
     return finalCommafiedTeam;
   }
 
+  if (teamMembersToAdd.length < 1) {
+    return (
+      <Modal>
+        Please select team members to add. 
+        <div>
+          <OkButton onClick={() => {
+            setConfirmMultipleModalView(false);
+            }}>Ok</OkButton>
+        </div>
+      </Modal>
+    );
+  }
   return (
     <Modal>
       {commafy(teamMembersToAdd)} added to {projectDetails[21].value}

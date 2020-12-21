@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddTeamMembersToProject from './AddTeamMembersToProject.jsx';
 
-const ProjectDetails = ({ projectDetails, setProjectDetails, team }) => {
+const ProjectDetails = ({ 
+  projectDetails, setProjectDetails, team, testTeamMember 
+}) => {
   const [addTeamMemberView, setAddTeamMemberView] = useState(false);
 
   const getDetail = (value) => {
@@ -25,14 +27,17 @@ const ProjectDetails = ({ projectDetails, setProjectDetails, team }) => {
         <p>PO #: {getDetail(projectDetails[80].value)}</p>
         <p>Tasks: {getDetail(projectDetails[120].value)}</p>
         <div>
-          <AddTeamMemberButton onClick={() => setAddTeamMemberView(true)}>Assign Team Members</AddTeamMemberButton>
+          <AddTeamMemberButton onClick={() => {
+            setAddTeamMemberView(true);
+            }}>Assign Team Members</AddTeamMemberButton>
         </div>
         <BackButton onClick={() => setProjectDetails(null)}>Back</BackButton>
       </div>
     );
   } else if (addTeamMemberView === true) {
     return (
-      <AddTeamMembersToProject addTeamMemberView={addTeamMemberView} setAddTeamMemberView={setAddTeamMemberView} 
+      <AddTeamMembersToProject addTeamMemberView={addTeamMemberView} 
+      setAddTeamMemberView={setAddTeamMemberView} testTeamMember={testTeamMember}
       projectDetails={projectDetails} setProjectDetails={setProjectDetails} team={team} />
     );
   }

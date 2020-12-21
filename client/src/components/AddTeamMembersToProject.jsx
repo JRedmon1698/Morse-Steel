@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MultipleTeamConfirmModal from './MultipleTeamConfirmModal.jsx';
 
 const AddTeamMembersToProject = ({ 
-  projectDetails, setProjectDetails, team, setAddTeamMemberView
+  projectDetails, setProjectDetails, team, setAddTeamMemberView, testTeamMember
 }) => {
   const [teamMembersToAdd, setTeamMemberstoAdd] = useState([]);
   const [confirmMultipleModalView, setConfirmMultipleModalView] = useState(false);
@@ -17,6 +17,11 @@ const AddTeamMembersToProject = ({
           }} value={teamMember[35].value} /> {teamMember[35].value}
         </div>
       ))}
+      <div>
+          <input type="checkbox" onChange={(e) => {
+            teamMembersToAdd.push(e.target.value);
+          }}/> {testTeamMember[35].value}
+      </div>
       <AddTeamMemberButton onClick={() => {
         setConfirmMultipleModalView(true);
       }}>Add to {projectDetails[21].value}</AddTeamMemberButton> <CancelButton onClick={() => {
