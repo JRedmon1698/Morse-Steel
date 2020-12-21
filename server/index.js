@@ -31,6 +31,7 @@ app.get('/api/morse/json/projects', (req, res) => {
 //  * * * * * Twilio calls * * * * *
 
 app.post('/api/twilio/text/:destinationNumber', (req, res) => {
+  const { message } = req.body;
   Twilio.sendText(req, res);
 });
 

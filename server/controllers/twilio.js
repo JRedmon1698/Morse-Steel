@@ -17,7 +17,7 @@ const Quickbase = require('./quickbase.js')
 exports.sendText = (req, res) => {
   client.messages
     .create({
-      body: req.body,
+      body: req.body.message,
       from: `${sourceNumber}`,
       to: req.params.destinationNumber
     })
