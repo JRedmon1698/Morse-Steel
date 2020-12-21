@@ -14,19 +14,19 @@ const MultipleTeamConfirmModal = ({
 
   const commafy = (team) => {
     if (team.length === 1) {
-      return team;
+      return team[0][35].value;
     }
     let commafiedTeam = [];
     let finalCommafiedTeam = [];
     for (let i = 0; i < team.length - 1; i += 1) {
-      commafiedTeam.push(`${team[i]}, `);
+      commafiedTeam.push(`${team[i][35].value}, `);
     }
-    finalCommafiedTeam = commafiedTeam.concat(`and ${team[team.length - 1]}`);
+    finalCommafiedTeam = commafiedTeam.concat(`and ${team[team.length - 1][35].value}`);
     return finalCommafiedTeam;
   };
 
   const sendTextToAddedTeamMembers = (teamMembers, project) => {
-    console.log('just inside func');
+    // console.log(teamMembersToAdd, project);
     for (let i = 0; i < teamMembers.length; i += 1) {
       console.log('inside for loop');
       let options = {
