@@ -20,7 +20,7 @@ const AddTeamMembersToProject = ({
       <div>
           <input type="checkbox" onChange={(e) => {
             teamMembersToAdd.push(e.target.value);
-          }}/> {testTeamMember[35].value}
+          }} value={testTeamMember[35].value} /> {testTeamMember[35].value}
       </div>
       <AddTeamMemberButton onClick={() => {
         setConfirmMultipleModalView(true);
@@ -32,7 +32,8 @@ const AddTeamMembersToProject = ({
         setProjectDetails={setProjectDetails}
         projectDetails={projectDetails}
         teamMembersToAdd={teamMembersToAdd}
-        setAddTeamMemberView={setAddTeamMemberView} />
+        setAddTeamMemberView={setAddTeamMemberView} 
+        testTeamMember={testTeamMember}/>
       {confirmMultipleModalView ? <PageMask /> : null}
     </div>
   );

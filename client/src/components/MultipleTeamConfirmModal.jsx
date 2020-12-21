@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const MultipleTeamConfirmModal = ({
   confirmMultipleModalView, setConfirmMultipleModalView, projectDetails,
-  setProjectDetails, teamMembersToAdd, setAddTeamMemberView
+  setProjectDetails, teamMembersToAdd, setAddTeamMemberView, testTeamMember
 }) => {
 
   if (!confirmMultipleModalView) {
@@ -38,7 +38,7 @@ const MultipleTeamConfirmModal = ({
   return (
     <Modal>
       {commafy(teamMembersToAdd)} added to {projectDetails[21].value}
-      <div>
+      <div>{console.log(testTeamMember)}
         <OkButton onClick={() => {
           setConfirmMultipleModalView(false);
           setAddTeamMemberView(false);
