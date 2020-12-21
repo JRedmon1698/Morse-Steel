@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const MultipleTeamConfirmModal = ({
   confirmMultipleModalView, setConfirmMultipleModalView, projectDetails,
@@ -21,7 +22,15 @@ const MultipleTeamConfirmModal = ({
     }
     finalCommafiedTeam = commafiedTeam.concat(`and ${team[team.length - 1]}`);
     return finalCommafiedTeam;
-  }
+  };
+
+  const sendTextToAddedTeamMembers = (teamMembers) => {
+    for (let i = 0; i < teamMembers.length; i += 1) {
+      axios.post(`/api/twilio/text/+1${teamMembers[i][12].value}`)
+        .then(() => console.log(`Text sent to ${teamMembers[i][7].value}`))
+        .catch((err) => console.log(err));
+    }
+  };
 
   if (teamMembersToAdd.length < 1) {
     return (
@@ -93,6 +102,7 @@ const OkButton = styled.button`
   background-color: lightgrey;
   border-radius: 6px;
   margin-top: 25%;
+  margin-bottom: 15px;
 `;
 
 const TextCheckboxes = styled.div`
