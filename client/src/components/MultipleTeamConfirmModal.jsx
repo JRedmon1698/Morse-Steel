@@ -26,14 +26,16 @@ const MultipleTeamConfirmModal = ({
   };
 
   const sendTextToAddedTeamMembers = (teamMembers, project) => {
+    console.log('just inside func');
     for (let i = 0; i < teamMembers.length; i += 1) {
+      console.log('inside for loop');
       let options = {
         message: `Good afternoon, ${teamMembers[i][7].value}. This text is 
         to inform you that you are scheduled to work the ${project[21].value} 
         project, with an estimated start date of ${project[27].value}.`
       };
       axios.post(`/api/twilio/text/+1${teamMembers[i][12].value}`, options)
-        .then(() => console.log(`Text sent to ${teamMembers[i][7].value}`))
+        .then((data) => console.log(`Text sent to ${teamMembers[i][7].value}`))
         .catch((err) => console.log(err));
     }
   };
@@ -41,21 +43,13 @@ const MultipleTeamConfirmModal = ({
   if (teamMembersToAdd.length < 1) {
     return (
       <Modal>
-        Please select team members to add.
+        Please select team members to add!
         <div>
-          <TextCheckboxes>
-            Send text message to added team members?
-            <input type="checkbox" /> yes
-            <input type="checkbox" /> no
-          </TextCheckboxes>
-          <OkButton onClick={() => {
-            if (!sendTextBoolean) {
+          <OkButton
+            onClick={() => {
               setConfirmMultipleModalView(false);
-            } else if (sendTextBoolean) {
-              sendTextToAddedTeamMembers(teamMembersToAdd, projectDetails);
-              setConfirmMultipleModalView(false);
-            }
-          }}>Ok</OkButton>
+            }}
+          >Ok</OkButton>
         </div>
       </Modal>
     );
@@ -67,13 +61,21 @@ const MultipleTeamConfirmModal = ({
         <TextCheckboxes>
           Send text message to added team members?
           <div>
-            <input type="checkbox" /> yes
+            <input type="checkbox" onChange={() => {
+              setSendTextBoolen(true);
+            }} /> yes
             <input type="checkbox" /> no
             </div>
         </TextCheckboxes>
         <OkButton onClick={() => {
+          if (!sendTextBoolean) {
           setConfirmMultipleModalView(false);
           setAddTeamMemberView(false);
+          } else if (sendTextBoolean) {
+            sendTextToAddedTeamMembers(teamMembersToAdd, projectDetails);
+            setConfirmMultipleModalView(false);
+            setAddTeamMemberView(false);
+          }
         }}>Ok</OkButton>
       </div>
     </Modal>
