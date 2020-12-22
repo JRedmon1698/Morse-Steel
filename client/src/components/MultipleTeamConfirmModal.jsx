@@ -25,14 +25,27 @@ const MultipleTeamConfirmModal = ({
     return finalCommafiedTeam;
   };
 
+  let timeNow = new Date();
+
+  const getTime = (time) => {
+    let greeting;
+    if (time.getHours() >= 0 && time.getHours() <= 11) {
+      greeting = 'morning';
+    }
+    if (time.getHours() >= 12 && time.getHours() <= 17) {
+      greeting = 'afternoon';
+    }
+    if (time.getHours() >= 18 && time.getHours() <= 24) {
+      greeting = 'evening';
+    }
+    return greeting;
+  };  
+
   const sendTextToAddedTeamMembers = (teamMembers, project) => {
     // console.log(teamMembersToAdd, project);
     for (let i = 0; i < teamMembers.length; i += 1) {
-      console.log('inside for loop');
       let options = {
-        message: `Good afternoon, ${teamMembers[i][7].value}. This text is 
-        to inform you that you are scheduled to work the ${project[21].value} 
-        project, with an estimated start date of ${project[27].value}.`
+        message: `Good ${getTime(timeNow)}, ${teamMembers[i][7].value}. This text is to inform you that you are scheduled to work the ${project[21].value} project, with an estimated start date of ${project[27].value}.`
       };
       axios.post(`/api/twilio/text/+1${teamMembers[i][12].value}`, options)
         .then((data) => console.log(`Text sent to ${teamMembers[i][7].value}`))
