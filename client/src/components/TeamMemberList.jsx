@@ -20,8 +20,13 @@ const TeamMemberList = ({ team, projects }) => {
   if (teamMemberDetails === null) {
     return (
       <div>
-        {team.map((teamMember, i) => (
-          <div key={i} onClick={() => setTeamMemberDetails(teamMember)} >
+        {team.sort((a, b) => {
+          let employeeNameA = a[35].value;
+          let employeeNameB = b[35].value;
+          return a[35].value.localeCompare(b[35].value);
+        })
+          .map((teamMember, i) => (
+          <div key={i} onClick={() => setTeamMemberDetails(teamMember)}>
             <TeamMember teamMember={teamMember} />
           </div>
         ))}
