@@ -5,7 +5,6 @@ import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import LabelIcon from '@material-ui/icons/Label';
 import TeamMemberDetails from './TeamMemberDetails.jsx';
 
-
 const TeamMember = ({ teamMember }) => {
   const [teamMemberDetails, setTeamMemberDetails] = useState(null);
 
@@ -20,14 +19,13 @@ const TeamMember = ({ teamMember }) => {
 
   const status = teamMember[11].value;
 
-
   // let positionColor = 'black';
   // const colorCodePosition = (pos) => {
   //   if (pos === 'Junior') {
   //     positionColor = 'orange';
   //   } else if (pos === 'Apprentice') {
   //     positionColor = 'lightgreen';
-  //   } else if (pos.includes('Foreman')) {
+  //   } else if (pos === ('Foreman')) {
   //     positionColor = 'purple';
   //   } else if (pos === 'General Foreman') {
   //     positionColor = 'lightblue';
@@ -37,7 +35,6 @@ const TeamMember = ({ teamMember }) => {
   //   positionColor = 'black';
   // };
 
-
     return (
       <div>
         <TeamMemberNameHover>{teamMember[35].value} {isActive(status)}</TeamMemberNameHover> 
@@ -46,7 +43,6 @@ const TeamMember = ({ teamMember }) => {
 };
 
 export default TeamMember;
-
 
   // junior gold
   // apprentice lime green

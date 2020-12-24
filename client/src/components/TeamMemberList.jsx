@@ -21,8 +21,6 @@ const TeamMemberList = ({ team, projects }) => {
     return (
       <div>
         {team.sort((a, b) => {
-          let employeeNameA = a[35].value;
-          let employeeNameB = b[35].value;
           return a[35].value.localeCompare(b[35].value);
         })
           .map((teamMember, i) => (
