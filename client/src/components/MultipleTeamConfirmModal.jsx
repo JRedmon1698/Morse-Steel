@@ -45,7 +45,7 @@ const MultipleTeamConfirmModal = ({
     // console.log(teamMembersToAdd, project);
     for (let i = 0; i < teamMembers.length; i += 1) {
       let options = {
-        message: `Good ${getTime(timeNow)}, ${teamMembers[i][7].value}. This text is to inform you that you are scheduled to work the ${project[21].value} project, with an estimated start date of ${project[27].value}.`
+        message: `Good ${getTime(timeNow)}, ${teamMembers[i][7].value}. Please report to ${project[161].value} at <address> for the ${project[21].value} project, with an estimated start date of ${project[27].value}.`
       };
       axios.post(`/api/twilio/text/+1${teamMembers[i][12].value}`, options)
         .then((data) => console.log(`Text sent to ${teamMembers[i][7].value}`))
