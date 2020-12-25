@@ -51,7 +51,7 @@ function App() {
 
   if (view === 'home') {
     return (
-      <div>{console.log(team[0])}
+      <div>
         <div>
           <LinkWrapper>
             <HomeTitleWrapper>

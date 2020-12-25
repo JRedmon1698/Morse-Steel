@@ -10,9 +10,9 @@ const TeamMember = ({ teamMember }) => {
 
   const isActive = (activityStatus) => {
     if (activityStatus === 'Active') {
-      return <CheckCircleIcon style={{ fill: 'green' }} />;
+      return <CheckCircleIcon style={{ fill: 'green'}} />;
     } else if (activityStatus === 'Inactive') {
-      return <CancelIcon style={{ fill: 'red' }} />;
+      return <CancelIcon style={{ fill: 'red'}} />;
     }
     return null;
   };
@@ -35,23 +35,27 @@ const TeamMember = ({ teamMember }) => {
   //   positionColor = 'black';
   // };
 
-    return (
-      <div>
-        <TeamMemberNameHover>{teamMember[35].value} {isActive(status)}</TeamMemberNameHover> 
-      </div>
-    );
+  return (
+    <div>
+      <TeamMemberNameHover>
+        {/* <PositionColor> */}
+          {teamMember[35].value} {isActive(status)}
+          {/* </PositionColor>  */}
+      </TeamMemberNameHover>
+    </div>
+  );
 };
 
 export default TeamMember;
 
-  // junior gold
-  // apprentice lime green
-  // foreman purple
-  // gen. formean light blue
-  // superint. pink
-  // vacay grey?
+// junior gold
+// apprentice lime green
+// foreman purple
+// gen. formean light blue
+// superint. pink
+// vacay grey?
 
-  const TeamMemberNameHover = styled.div`
+const TeamMemberNameHover = styled.div`
   :hover {
     cursor: pointer;
     color: blue;
@@ -60,3 +64,7 @@ export default TeamMember;
   display: inline-block;
   text-align: center;
 `;
+
+// const PositionColor = styled.p`
+//   background-color: ${positionColor};
+// `;

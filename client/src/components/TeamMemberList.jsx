@@ -24,10 +24,10 @@ const TeamMemberList = ({ team, projects }) => {
           return a[35].value.localeCompare(b[35].value);
         })
           .map((teamMember, i) => (
-          <div key={i} onClick={() => setTeamMemberDetails(teamMember)}>
-            <TeamMember teamMember={teamMember} />
-          </div>
-        ))}
+            <div key={i} onClick={() => setTeamMemberDetails(teamMember)}>
+              <TeamMember teamMember={teamMember} />
+            </div>
+          ))}
       </div>
     );
   } else if (teamMemberDetails !== null) {
