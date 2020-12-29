@@ -20,7 +20,7 @@ const appId = 'bqs3mx358';
 const projectTableId = 'bqs3mx37c';
 const teamMemberTableId = 'bqv7vttbx';
 
-// team members, non-json
+// team members, non-json, for getting field id's and other table info
 app.get('/api/morse/team', (req, res) => {
   const reqUrl = `${morseSteelTeamMembers}?a=API_DoQuery&fmt=structured&includeRids=1&query={10.EX.'Foreman'}&usertoken=${token}`;
 
@@ -29,7 +29,7 @@ app.get('/api/morse/team', (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// team members, json
+// get team members, json, for gettting team members, individual or groups
 app.get('/api/morse/json/team', (req, res) => {
   const reqUrl = `https://api.quickbase.com/v1/records/query`;
 
@@ -71,7 +71,7 @@ app.get('/api/morse/json/team', (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// projects, non-json
+// projects, non-json, for getting field id's and other table info
 app.get('/api/morse/projects', (req, res) => {
   const reqUrl = `${morseSteelProjects}?a=API_DoQuery&fmt=structured&includeRids=1&usertoken=${token}`;
 
@@ -80,7 +80,7 @@ app.get('/api/morse/projects', (req, res) => {
     .catch((err) => console.log(err));
 });
 
-// projects, json
+// projects, json, for getting projects, individual or groups
 app.get('/api/morse/json/projects', (req, res) => {
   const reqUrl = `https://api.quickbase.com/v1/records/query`;
 
@@ -124,16 +124,20 @@ app.get('/api/morse/json/projects', (req, res) => {
 
 // twilio test call
 app.post('/api/twilio/test', (req, res) => {
-  console.log(sourceNumber);
+  // axios({
+    // make get req to team or project
+  // })
+  // .then((data) => {
+    // send a piece of fetched data in body of twilio message
+  // })
   client.messages
   .create({
      body: 'This is a test.',
      from: `${sourceNumber}`,
      to: `${destinationNumber}`
    })
-  .then(message => res.send('Success'))
+  .then((message) => res.send('Message sent successfully'))
   .catch((err) => console.log(err));
-
 });
 
 app.listen(PORT, () => {
