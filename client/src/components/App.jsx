@@ -6,11 +6,16 @@ import styled from 'styled-components';
 import morseSteelImage from '../../images/morse-steel.jpg';
 import dropboxImage from '../../images/dropbox.png';
 import quickbaseImage from '../../images/quickbase.png';
+import testTeamMember from '../../../client/sample.js';
+import dropBoxUrl from './../../../dropbox.config.js';
 
 function App() {
   const [projects, setProjects] = useState([]);
   const [team, setTeam] = useState([]);
   const [view, setView] = useState('home');
+
+  // want view where you can select a specific date (calendar view? select date input?) and see all 
+  // projects on that date, as well as employees working those projects 
 
   const getProjects = () => {
     axios.get('/api/morse/json/projects')
@@ -52,23 +57,23 @@ function App() {
     return (
       <div>
         <div>
-        <LinkWrapper>
-        <HomeTitleWrapper>
-            Project and Team Member Manager
+          <LinkWrapper>
+            <HomeTitleWrapper>
+              Project and Team Member Manager
             </HomeTitleWrapper>
             <DropboxDiv>
               Dropbox
-        <DropBoxLink href='https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0' 
-          target='_blank'/>
-          </DropboxDiv>
-          <QuickbaseDiv>
-            Quickbase
+        <DropBoxLink href={dropBoxUrl}
+                target='_blank' />
+            </DropboxDiv>
+            <QuickbaseDiv>
+              Quickbase
           <QuickbaseLink href='https://morsesteel.quickbase.com/db/main?a=myqb'
-          target='_blank' />
-          </QuickbaseDiv>
+                target='_blank' />
+            </QuickbaseDiv>
           </LinkWrapper>
         </div>
-        <TitlePicture />
+        <TitlePicture/>
         <div>
           <ProjectButton onClick={displayProjectView}>Projects</ProjectButton>
         </div>
@@ -86,8 +91,9 @@ function App() {
           <TitlePicture />
         </div>
         <h1>Projects</h1>
-        <ProjectList projects={projects} />
-        <BackButton onClick={displayHomeView}>Back</BackButton>
+        <ProjectList projects={projects} team={team} 
+        testTeamMember={testTeamMember} />
+        <HomeButton onClick={displayHomeView}>Home</HomeButton>
       </div>
     );
   };
@@ -99,8 +105,8 @@ function App() {
           <TitlePicture />
         </div>
         <h1>Team Members</h1>
-        <TeamMemberList team={team} />
-        <BackButton onClick={displayHomeView}>Back</BackButton>
+        <TeamMemberList team={team} projects={projects} testTeamMember={testTeamMember} />
+        <HomeButton onClick={displayHomeView}>Home</HomeButton>
       </div>
     );
   };
@@ -145,7 +151,6 @@ const DropBoxLink = styled.a`
   :hover {
     cursor: pointer;
   }
-  
 `;
 
 const QuickbaseLink = styled.a`
@@ -188,11 +193,15 @@ const TMButton = styled.button`
   margin-right: 25%;
   `;
 
-const BackButton = styled.button`
+const HomeButton = styled.button`
   :hover {
     cursor: pointer;
   }
-  margin-top: 15px;
+  margin-top: 45px;
+  padding: 10px;
+  font-size 14px;
+  background-color: green;
+  color: white;
 `;
 
 const TitlePicture = styled.div`
