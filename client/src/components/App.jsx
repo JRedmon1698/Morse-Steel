@@ -7,7 +7,7 @@ import morseSteelImage from '../../images/morse-steel.jpg';
 import dropboxImage from '../../images/dropbox.png';
 import quickbaseImage from '../../images/quickbase.png';
 import testTeamMember from '../../../client/sample.js';
-import dropBoxUrl from './../../../dropbox.config.js';
+import dbxUrl from './../../../dropbox.config.js';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -63,7 +63,7 @@ function App() {
             </HomeTitleWrapper>
             <DropboxDiv>
               Dropbox
-        <DropBoxLink href={dropBoxUrl}
+        <DropBoxLink href={dbxUrl}
                 target='_blank' />
             </DropboxDiv>
             <QuickbaseDiv>

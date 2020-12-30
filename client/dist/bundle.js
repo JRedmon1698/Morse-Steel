@@ -1939,10 +1939,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
   \***************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
-/*! CommonJS bailout: module.exports is used directly at 2:0-14 */
 /***/ ((module) => {
 
-eval("var dropBoxUrl = 'https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0';\nmodule.exports = dropBoxUrl;\n\n//# sourceURL=webpack://Morse-Steel/./dropbox.config.js?");
+eval("var dbxUrl = 'https://www.dropbox.com/s/z099nf9lxcsasih/MSR%20FIELD%20LABOR%204%20WEEK%20LOOK%20AHEAD_Week%20End%2012.5.20.xlsx?dl=0';\nvar dbxToken = 'JkScuraYQNoAAAAAAAAAAYjLqAkJFxIi7jovE5V2KtXkVvPc9iSZ1expdGPdckwM';\nmodule.exports = {\n  dbxUrl: dbxUrl,\n  dbxToken: dbxToken\n};\n\n//# sourceURL=webpack://Morse-Steel/./dropbox.config.js?");
 
 /***/ }),
 
