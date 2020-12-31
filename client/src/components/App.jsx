@@ -59,7 +59,7 @@ function App() {
         <div>
           <LinkWrapper>
             <HomeTitleWrapper>
-              Project and Team Member Manager
+              Project and Team Member Manager 
             </HomeTitleWrapper>
             <DropboxDiv>
               Dropbox
