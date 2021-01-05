@@ -10,37 +10,40 @@ const TeamMember = ({ teamMember }) => {
 
   const isActive = (activityStatus) => {
     if (activityStatus === 'Active') {
-      return <CheckCircleIcon style={{ fill: 'green'}} />;
+      return <CheckCircleIcon style={{ fill: 'green' }} />;
     } else if (activityStatus === 'Inactive') {
-      return <CancelIcon style={{ fill: 'red'}} />;
+      return <CancelIcon style={{ fill: 'red' }} />;
     }
     return null;
   };
 
-  const status = teamMember[11].value;
+  const colorCodePosition = (pos) => {
+    let positionColor = 'white';
+    if (pos === 'Junior') {
+      positionColor = 'orange';
+    } else if (pos.includes('Apprentice')) {
+      positionColor = 'lightgreen';
+    } else if (pos === ('Foreman')) {
+      positionColor = 'purple';
+    } else if (pos === 'General Foreman') {
+      positionColor = 'lightblue';
+    } else if (pos === 'Superintendent') {
+      positionColor = 'pink';
+    }
+    return positionColor;
+  };
 
-  // let positionColor = 'black';
-  // const colorCodePosition = (pos) => {
-  //   if (pos === 'Junior') {
-  //     positionColor = 'orange';
-  //   } else if (pos === 'Apprentice') {
-  //     positionColor = 'lightgreen';
-  //   } else if (pos === ('Foreman')) {
-  //     positionColor = 'purple';
-  //   } else if (pos === 'General Foreman') {
-  //     positionColor = 'lightblue';
-  //   } else if (pos === 'Superintendent') {
-  //     positionColor = 'pink';
-  //   } 
-  //   positionColor = 'black';
-  // };
+  const positionStyle = {
+    backgroundColor: `${colorCodePosition(teamMember[10].value)}`,
+    // backgroundColor: 'blue',
+  }
 
   return (
     <div>
       <TeamMemberNameHover>
-        {/* <PositionColor> */}
-          {teamMember[35].value} {isActive(status)}
-          {/* </PositionColor>  */}
+        <PositionColor style={positionStyle}>
+          {teamMember[35].value} {isActive(teamMember[11].value)}
+        </PositionColor>
       </TeamMemberNameHover>
     </div>
   );
@@ -55,7 +58,7 @@ export default TeamMember;
 // superint. pink
 // vacay grey?
 
-const TeamMemberNameHover = styled.div`
+const TeamMemberNameHover = styled.span`
   :hover {
     cursor: pointer;
     color: blue;
@@ -65,6 +68,8 @@ const TeamMemberNameHover = styled.div`
   text-align: center;
 `;
 
-// const PositionColor = styled.p`
-//   background-color: ${positionColor};
-// `;
+const PositionColor = styled.p`
+  font-weight: 900;
+`;
+// background-color: ${colorCodePosition(teamMember[10].value)}
+// background-color: ${positionColor};
