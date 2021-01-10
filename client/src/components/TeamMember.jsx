@@ -35,7 +35,6 @@ const TeamMember = ({ teamMember }) => {
 
   const positionStyle = {
     backgroundColor: `${colorCodePosition(teamMember[10].value)}`,
-    // backgroundColor: 'blue',
   }
 
   return (
