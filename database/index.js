@@ -4,12 +4,14 @@ const mysqlPassword = require('../mysql.config.js');
 const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'mysql',
   database: 'morsesteel'
 });
 
-connection.connect()
-  .then(() => console.log('Connected to mysql'))
-  .catch((err) => console.log(err));
-
+conn.connect((err) => {
+  if (err) {
+    console.log(err);
+  }
+  console.log('Connected to DB');
+});
   

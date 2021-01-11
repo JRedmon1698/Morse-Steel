@@ -1,7 +1,7 @@
 const { client, sourceNumber, destinationNumber } = require('../../twilio/config.js');
 const axios = require('axios');
 const twilio = require('../../twilio/twilioServer.js');
-const Quickbase = require('./quickbase.js')
+const Quickbase = require('./quickbase.js');
 
 // exports.sendText = (req, res) => {
 //   client.messages

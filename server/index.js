@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const Twilio = require('./controllers/twilio.js');
 const Quickbase = require('./controllers/quickbase.js');
+const db = require('../database/index.js');
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/../client/dist')));
