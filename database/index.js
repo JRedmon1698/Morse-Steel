@@ -15,3 +15,5 @@ conn.connect((err) => {
   console.log('Connected to DB');
 });
   
+
+const test = 'test';
