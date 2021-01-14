@@ -12,7 +12,7 @@ conn.connect((err) => {
   if (err) {
     console.log(err);
   }
-  console.log('Connected to DB');
+  console.log('successfully Connected to DB');
 });
   
 
