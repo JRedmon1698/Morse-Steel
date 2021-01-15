@@ -14,9 +14,6 @@ function App() {
   const [team, setTeam] = useState([]);
   const [view, setView] = useState('home');
 
-  // want view where you can select a specific date (calendar view? select date input?) and see all 
-  // projects on that date, as well as employees working those projects 
-
   const getProjects = () => {
     axios.get('/api/morse/json/projects')
       .then(({ data }) => {
