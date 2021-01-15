@@ -4,7 +4,7 @@ const mysqlPassword = require('../mysql.config.js');
 const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'mysql',
+  password: `${mysqlPassword}`,
   database: 'morsesteel'
 });
 
