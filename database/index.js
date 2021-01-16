@@ -5,12 +5,13 @@ const conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: mysqlPassword,
-  database: 'morse_steel'
+  database: 'morse_steel',
+  insecureAuth: true
 });
 
 conn.connect((err) => {
   if (err) {
     console.log(err);
   }
-  console.log('successfully Connected to DB');
+  console.log('Connected to DB');
 });

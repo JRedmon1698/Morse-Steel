@@ -1,4 +1,4 @@
-const { client, sourceNumber, destinationNumber } = require('../../twilio/config.js');
+const { client, sourceNumber, destinationNumber } = require('../../twilio/twilio.config.js');
 const token = require('../../quickbase.config.js');
 const axios = require('axios');
 
